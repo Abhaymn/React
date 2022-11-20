@@ -1,9 +1,11 @@
 
 
-import ExpenseItem from "./components/ExpenseItem";
+import React from "react";
+
+import Expenses from './components/Expenses/Expenses';
 
 
-function App(){
+const App=()=>{
   const LocationOfExpenditure=[
     {
       item:'Food',
@@ -21,21 +23,17 @@ function App(){
       date:new Date(2022,6,11)
     }
   ]
+  // return React.createElement(
+  //   'div',
+  //   {},
+  //   React.createElement('h2',{},'ExpenseItems!'),
+  //   React.cloneElement(Expenses,{items:LocationOfExpenditure})
+
+  // );
   return (
     <div>
       <h2>*ExpenseItems*</h2>
-      <ExpenseItem item={ LocationOfExpenditure[0].item}
-      amount={ LocationOfExpenditure[0].amount}
-      date={ LocationOfExpenditure[0].date}
-      />
-      <ExpenseItem item={ LocationOfExpenditure[1].item}
-      amount={ LocationOfExpenditure[1].amount}
-      date={ LocationOfExpenditure[1].date}
-      />
-       <ExpenseItem item={ LocationOfExpenditure[2].item}
-      amount={ LocationOfExpenditure[2].amount}
-      date={ LocationOfExpenditure[2].date}
-      />
+      <Expenses items={LocationOfExpenditure}/>
     </div>
   )
 }
