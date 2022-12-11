@@ -5,18 +5,22 @@ import ExpenseDate from './ExpenseDate';
 import Card from '../UI/Card';
 
 import './ExpenseItem.css';
-import Expenses from "./Expenses";
+import './Expenses';
 
 const ExpenseItem=(props)=>{
+    const click=()=>{
+        console.log('clicked..');
+    }
     return (
 <Card className='expense-item'>
-      
-            
-		<div className='expense-item'>
+<div className="expense-item">
             <ExpenseDate date ={props.date} />
+    		
+
+
             <ExpenseDetails item={props.item} amount={props.amount} />
-        
-		</div>
+            </div>
+            <button onClick={click}>Delete</button>
             </Card>
     )
 }
