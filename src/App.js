@@ -1,35 +1,42 @@
 
 
-import React from "react";
+import React,{useState} from "react";
 
 import NewExpense from "./components/ExpenseForm/NewExpense";
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 
 import Expenses from './components/Expenses/Expenses';
 
+const DUMMY_EXPENSES=[
+  {
+    id:'e1',
+    item:'Food',
+    amount:10,
+    date:new Date(2021,5,12)
+  },
+  {
+    id:'e2',
+    item:'Petrol',
+    amount:100,
+    date:new Date(2022,4,12)
+  },
+  {
+    id:'e3',
+    item:'Movies',
+    amount:200,
+    date:new Date(2022,6,11)
+  },
+];
 
 const App=()=>{
-  const LocationOfExpenditure=[
-    {
-      item:'Food',
-      amount:10,
-      date:new Date(2021,5,12)
-    },
-    {
-      item:'Petrol',
-      amount:100,
-      date:new Date(2022,4,12)
-    },
-    {
-      item:'Movies',
-      amount:200,
-      date:new Date(2022,6,11)
-    },
-  ];
+
+ const [expenses,setExpenses]= useState(DUMMY_EXPENSES);
+  
 
   const addExpenseHandler=expense=>{
-    console.log('in app.js');
-    console.log(expense);
+    setExpenses(prevExpenses=>{
+      return [expense,...prevExpenses]
+    });
   };
 
   // return React.createElement(
@@ -44,7 +51,7 @@ const App=()=>{
       <ExpenseItem/>
       
       <NewExpense onAssExpense={addExpenseHandler}/>
-      <Expenses items={LocationOfExpenditure}/>
+      <Expenses items={expenses}/>
     </div>
   )
 }

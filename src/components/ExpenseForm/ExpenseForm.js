@@ -3,13 +3,13 @@ import React ,{useState} from "react";
 
 const ExpenseForm=(props)=>{
 
-    const[enteredTitle,setEnteredTitle]=useState('');
+    const[enteredItem,setEnteredItem]=useState('');
     const[enteredAmount,setEnteredAmount]=useState('');
     const[enteredDate,setEnteredDate]=useState('');
            
 
-    const titleChangeHandler=(event)=>{
-        setEnteredTitle(event.target.value);
+    const itemChangeHandler=(event)=>{
+        setEnteredItem(event.target.value);
     };
     
     const amountChangeHandler=(event)=>{
@@ -24,14 +24,14 @@ const ExpenseForm=(props)=>{
         event.preventDefault();
 
         const expenseData={
-            title:enteredTitle,
+            item:enteredItem,
             amount:enteredAmount,
             date:new Date(enteredDate)
 
         };
         props.onSaveExpenseData(expenseData);
 
-        setEnteredTitle('');
+        setEnteredItem('');
         setEnteredAmount('');
         setEnteredDate('');
 
@@ -40,8 +40,8 @@ const ExpenseForm=(props)=>{
         <form onSubmit={submitHandler}>
         <div>
             <div>
-                <label>Title</label>
-                <input type='text' onChange={titleChangeHandler}/>
+                <label>Item</label>
+                <input type='text' onChange={itemChangeHandler}/>
             </div>
             <div>
                 <label>Amount</label>

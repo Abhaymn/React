@@ -9,22 +9,21 @@ import './Expenses.css';
 
 const Expenses=(props)=>{
     return (
-       
+      <div>
         <Card className='expenses'>
-        <ExpenseItem item={ props.items[0].item}
-        amount={props.items[0].amount}
-        date={props.items[0].date}
-        />
-        <ExpenseItem items={ props.item[1].item}
-        amount={ props.items[1].amount}
-        date={ props.items[1].date}
-        />
-         <ExpenseItem item={ props.items[2].item}
-        amount={ props.items[2].amount}
-        date={props.items[2].date}
-        />
+          
+          {
+            props.item.map((expense)=>(
+            <ExpenseItem 
+            key={expense.id}
+            item={expense.item}
+             amount={expense.amount}
+              date={expense.date}
+              />
+              ))
+          }
        </Card>
-       
+       </div>  
      )
 }
 export default Expenses;
