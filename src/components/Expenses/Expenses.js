@@ -28,4 +28,5 @@ const Expenses=(props)=>{
        </div>  
      )
 }
+
 export default Expenses;

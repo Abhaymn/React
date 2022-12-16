@@ -6,7 +6,7 @@ const ExpensesList=props=>{
     let expensesContent=<p>No expenses</p>;
 
    if (props.items.length===0){
-    return <h2>no expenses</h2>
+    return <h2>    Only single Expense here. Please add more...    </h2>
    }
 
 return <ul >
